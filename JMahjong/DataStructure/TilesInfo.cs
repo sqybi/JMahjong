@@ -64,6 +64,6 @@
         /// <summary>
         /// 弃牌来自的玩家
         /// </summary>
-        public PlayerPosition DiscardPlayer { get; set; }
+        public PlayerAbsolutePosition DiscardPlayer { get; set; }
     }
 }
