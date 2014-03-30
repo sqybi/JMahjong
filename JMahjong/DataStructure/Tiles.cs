@@ -3,7 +3,7 @@
     /// <summary>
     /// 牌组类型
     /// </summary>
-    public enum TileGroupType
+    public enum TilesType
     {
         /// <summary>
         /// 单张
@@ -49,12 +49,12 @@
     /// <summary>
     /// 牌组
     /// </summary>
-    public class TileGroup
+    public class Tiles
     {
         /// <summary>
         /// 牌组类型（单张/对子/明暗顺子/明暗刻子/明暗杠子）
         /// </summary>
-        public TileGroupType Type { get; set; }
+        public TilesType Type { get; set; }
 
         /// <summary>
         /// 牌组指示牌（顺子 => 最小一张；其它 => 任意一张）
