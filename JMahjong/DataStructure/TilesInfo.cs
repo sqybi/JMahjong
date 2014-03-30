@@ -8,7 +8,7 @@
         /// <summary>
         /// 单张
         /// </summary>
-        Single,
+        Singleton,
 
         /// <summary>
         /// 对子
@@ -49,7 +49,7 @@
     /// <summary>
     /// 牌组
     /// </summary>
-    public class Tiles
+    public class TilesInfo
     {
         /// <summary>
         /// 牌组类型（单张/对子/明暗顺子/明暗刻子/明暗杠子）
@@ -59,6 +59,11 @@
         /// <summary>
         /// 牌组指示牌（顺子 => 最小一张；其它 => 任意一张）
         /// </summary>
-        public Tile IndicatingTile { get; set; }
+        public TileInfo IndicatingTile { get; set; }
+
+        /// <summary>
+        /// 弃牌来自的玩家
+        /// </summary>
+        public PlayerPosition DiscardPlayer { get; set; }
     }
 }
