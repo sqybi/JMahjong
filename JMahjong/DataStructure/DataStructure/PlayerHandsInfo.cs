@@ -46,5 +46,10 @@ namespace JMahjong.General.DataStructure
         /// 是否为一发巡
         /// </summary>
         public bool IsOneShotRound { get; set; }
+
+        /// <summary>
+        /// 是否已经立直
+        /// </summary>
+        public bool IsReadyHand { get; set; }
     }
 }

@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="Yaku\IYaku.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Yaku\ReadyHandYaku.cs" />
+    <Compile Include="Yaku\SevenPairsYaku.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\General.csproj">
