@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-namespace JMahjong.DataStructure
+﻿namespace JMahjong.General.Enum
 {
     /// <summary>
     /// 玩家相对位置

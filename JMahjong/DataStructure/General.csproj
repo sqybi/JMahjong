@@ -7,8 +7,8 @@
     <ProjectGuid>{6AFA4ED8-A495-4FD0-A0D4-82B8A8A98CAF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JMahjong.DataStructure</RootNamespace>
-    <AssemblyName>JMahjong.DataStructure</AssemblyName>
+    <RootNamespace>JMahjong.General</RootNamespace>
+    <AssemblyName>JMahjong.General</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Distrib\Libs\</OutputPath>
+    <OutputPath>..\Distrib\Debug\Libs\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -24,7 +24,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Distrib\Release\Libs\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -39,15 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PlayerSituationInfo.cs" />
-    <Compile Include="HandsInfo.cs" />
-    <Compile Include="LatestTileInfo.cs" />
-    <Compile Include="PlayerHandsInfo.cs" />
-    <Compile Include="PlayerPosition.cs" />
-    <Compile Include="TileInfo.cs" />
+    <Compile Include="DataStructure\PlayerSituationInfo.cs" />
+    <Compile Include="DataStructure\HandsInfo.cs" />
+    <Compile Include="DataStructure\LatestTileInfo.cs" />
+    <Compile Include="DataStructure\PlayerHandsInfo.cs" />
+    <Compile Include="Enum\PlayerPosition.cs" />
+    <Compile Include="DataStructure\TileInfo.cs" />
+    <Compile Include="Enum\TilesType.cs" />
+    <Compile Include="Enum\TileType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TilesInfo.cs" />
+    <Compile Include="DataStructure\TilesInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

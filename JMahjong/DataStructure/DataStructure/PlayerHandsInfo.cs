@@ -1,4 +1,4 @@
-﻿namespace JMahjong.DataStructure
+﻿namespace JMahjong.General.DataStructure
 {
     /// <summary>
     /// 和玩家相关的手牌信息

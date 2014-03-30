@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace JMahjong.DataStructure
+namespace JMahjong.General.DataStructure
 {
     /// <summary>
     /// 玩家场况信息

@@ -1,4 +1,4 @@
-﻿namespace JMahjong.DataStructure
+﻿namespace JMahjong.General.DataStructure
 {
     /// <summary>
     /// 最后进张牌信息

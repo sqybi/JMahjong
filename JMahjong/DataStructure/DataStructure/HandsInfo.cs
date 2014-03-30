@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace JMahjong.DataStructure
+namespace JMahjong.General.DataStructure
 {
     /// <summary>
     /// 手牌信息
