@@ -39,10 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Yaku\DoubleReadyHandYaku.cs" />
+    <Compile Include="Yaku\RobbingQuadYaku.cs" />
     <Compile Include="Yaku\IYaku.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Yaku\DeadWallDrawYaku.cs" />
+    <Compile Include="Yaku\LastTileYaku.cs" />
+    <Compile Include="Yaku\OneShotYaku.cs" />
+    <Compile Include="Yaku\LastDiscardYaku.cs" />
     <Compile Include="Yaku\ReadyHandYaku.cs" />
+    <Compile Include="Yaku\SelfPickYaku.cs" />
     <Compile Include="Yaku\SevenPairsYaku.cs" />
+    <Compile Include="Yaku\YakuHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\General.csproj">

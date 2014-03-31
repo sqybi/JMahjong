@@ -4,14 +4,14 @@ using JMahjong.General.DataStructure;
 namespace JMahjong.ValueCalculation.Yaku
 {
     /// <summary>
-    /// 立直（riichi）
+    /// 海底捞月（haitei raoyue）
     /// </summary>
-    public class ReadyHandYaku : IYaku
+    public class LastTileYaku : IYaku
     {
         /// <summary>
         /// 构造函数
         /// </summary>
-        public ReadyHandYaku()
+        public LastTileYaku()
         {
         }
 
@@ -19,11 +19,12 @@ namespace JMahjong.ValueCalculation.Yaku
         {
             int resultHan = 0;
 
-            if (playerHands.IsReadyHand)
+            if (playerHands.LatestTile.IsLastTileInWall
+                && playerHands.LatestTile.IsSelfPick)
             {
                 resultHan = 1;
             }
-
+            
             return resultHan;
         }
     }

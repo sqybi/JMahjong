@@ -6,12 +6,12 @@ namespace JMahjong.ValueCalculation.Yaku
     /// <summary>
     /// 立直（riichi）
     /// </summary>
-    public class ReadyHandYaku : IYaku
+    public class DoubleReadyHandYaku : IYaku
     {
         /// <summary>
         /// 构造函数
         /// </summary>
-        public ReadyHandYaku()
+        public DoubleReadyHandYaku()
         {
         }
 
@@ -19,9 +19,10 @@ namespace JMahjong.ValueCalculation.Yaku
         {
             int resultHan = 0;
 
-            if (playerHands.IsReadyHand)
+            if (playerHands.IsReadyHand
+                && playerHands.IsReadyHandInFirstRound)
             {
-                resultHan = 1;
+                resultHan = 2;
             }
 
             return resultHan;

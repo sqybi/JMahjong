@@ -13,7 +13,12 @@
         /// <summary>
         /// 是否为自摸
         /// </summary>
-        public bool IsFromWall { get; set; }
+        public bool IsSelfPick { get; set; }
+
+        /// <summary>
+        /// 是否为抢杠
+        /// </summary>
+        public bool IsRobbingQuad { get; set; }
 
         /// <summary>
         /// 是否为海底/河底牌

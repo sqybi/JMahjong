@@ -4,14 +4,14 @@ using JMahjong.General.DataStructure;
 namespace JMahjong.ValueCalculation.Yaku
 {
     /// <summary>
-    /// 立直（riichi）
+    /// 抢杠（chankan）
     /// </summary>
-    public class ReadyHandYaku : IYaku
+    public class RobbingQuadYaku : IYaku
     {
         /// <summary>
         /// 构造函数
         /// </summary>
-        public ReadyHandYaku()
+        public RobbingQuadYaku()
         {
         }
 
@@ -19,7 +19,8 @@ namespace JMahjong.ValueCalculation.Yaku
         {
             int resultHan = 0;
 
-            if (playerHands.IsReadyHand)
+            if (playerHands.LatestTile.IsRobbingQuad
+                && !playerHands.LatestTile.IsSelfPick)
             {
                 resultHan = 1;
             }

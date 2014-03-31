@@ -7,6 +7,8 @@ namespace JMahjong.General.DataStructure
     /// </summary>
     public class PlayerHandsInfo
     {
+        #region Tiles
+
         /// <summary>
         /// 浮动牌（未吃/碰/明杠/暗杠过的牌）
         /// </summary>
@@ -22,15 +24,14 @@ namespace JMahjong.General.DataStructure
         /// </summary>
         public LatestTileInfo LatestTile { get; set; }
 
+        #endregion
+
+        #region General Situation
+
         /// <summary>
         /// 场风（东/南/西/北）
         /// </summary>
         public int PrevailingWind { get; set; }
-
-        /// <summary>
-        /// 自风（东/南/西/北）
-        /// </summary>
-        public int OwnWind { get; set; }
 
         /// <summary>
         /// 宝牌（不包含里宝牌）
@@ -43,13 +44,34 @@ namespace JMahjong.General.DataStructure
         public List<TileInfo> UraDora { get; set; }
 
         /// <summary>
-        /// 是否为一发巡
+        /// 当前巡数
         /// </summary>
-        public bool IsOneShotRound { get; set; }
+        public int Round { get; set; }
+
+        #endregion
+
+        #region Player Situation
+
+        /// <summary>
+        /// 自风（东/南/西/北）
+        /// </summary>
+        public int OwnWind { get; set; }
 
         /// <summary>
         /// 是否已经立直
         /// </summary>
         public bool IsReadyHand { get; set; }
+
+        /// <summary>
+        /// 是否为第一巡立直
+        /// </summary>
+        public bool IsReadyHandInFirstRound { get; set; }
+
+        /// <summary>
+        /// 是否为一发巡
+        /// </summary>
+        public bool IsOneShotRound { get; set; }
+
+        #endregion
     }
 }

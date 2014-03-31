@@ -4,14 +4,14 @@ using JMahjong.General.DataStructure;
 namespace JMahjong.ValueCalculation.Yaku
 {
     /// <summary>
-    /// 立直（riichi）
+    /// 一发（ippatsu）
     /// </summary>
-    public class ReadyHandYaku : IYaku
+    public class OneShotYaku : IYaku
     {
         /// <summary>
         /// 构造函数
         /// </summary>
-        public ReadyHandYaku()
+        public OneShotYaku()
         {
         }
 
@@ -19,7 +19,8 @@ namespace JMahjong.ValueCalculation.Yaku
         {
             int resultHan = 0;
 
-            if (playerHands.IsReadyHand)
+            if (playerHands.IsReadyHand
+                && playerHands.IsOneShotRound)
             {
                 resultHan = 1;
             }
