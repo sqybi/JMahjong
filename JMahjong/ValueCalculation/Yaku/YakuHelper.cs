@@ -51,10 +51,17 @@ namespace JMahjong.ValueCalculation.Yaku
                 && meldList.Count(meld => meld.Type == MeldType.Pair) == 1;
         }
 
-        public static int CountInMelds(MeldType meldType, TileInfo indicatingTile, IEnumerable<MeldInfo> meldList)
+        /// <summary>
+        /// 统计某个牌组在分组后的手牌中出现的次数
+        /// </summary>
+        /// <param name="meldType">牌组类型</param>
+        /// <param name="indicatingTile">牌组指示牌</param>
+        /// <param name="melds">分组的手牌信息</param>
+        /// <returns>牌组在手牌中出现的次数</returns>
+        public static int CountMeldInMelds(MeldType meldType, TileInfo indicatingTile, IEnumerable<MeldInfo> melds)
         {
             int count = 0;
-            foreach (var meld in meldList)
+            foreach (var meld in melds)
             {
                 if (meld.Type == meldType
                     && meld.IndicatingTile == indicatingTile)

@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Yaku\DoubleReadyHandYaku.cs" />
     <Compile Include="Yaku\NoPointsHandYaku.cs" />
+    <Compile Include="Yaku\OneSetOfIdenticalSequencesYaku.cs" />
     <Compile Include="Yaku\RobbingQuadYaku.cs" />
     <Compile Include="Yaku\IYaku.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +52,9 @@
     <Compile Include="Yaku\ReadyHandYaku.cs" />
     <Compile Include="Yaku\SelfPickYaku.cs" />
     <Compile Include="Yaku\SevenPairsYaku.cs" />
+    <Compile Include="Yaku\StraightYaku.cs" />
+    <Compile Include="Yaku\ThreeColorStraightYaku.cs" />
+    <Compile Include="Yaku\TwoSetsOfIdenticalSequencesYaku.cs" />
     <Compile Include="Yaku\YakuHelper.cs" />
   </ItemGroup>
   <ItemGroup>
