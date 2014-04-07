@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Yaku\DoubleReadyHandYaku.cs" />
+    <Compile Include="Yaku\NoPointsHandYaku.cs" />
     <Compile Include="Yaku\RobbingQuadYaku.cs" />
     <Compile Include="Yaku\IYaku.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
