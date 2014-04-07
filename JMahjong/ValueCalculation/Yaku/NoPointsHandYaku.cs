@@ -17,24 +17,24 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<TilesInfo> groupedTilesList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
         {
             int resultHan = 0;
 
-            if (YakuHelper.IsWinningCloseHands(groupedTilesList))
+            if (YakuHelper.IsWinningCloseHands(groupedMeldList))
             {
-                var acceptedTypeList = new List<TilesType>
+                var acceptedTypeList = new List<MeldType>
                 {
-                    TilesType.ClosedSequence,
-                    TilesType.Pair
+                    MeldType.ClosedSequence,
+                    MeldType.Pair
                 };
 
-                if (groupedTilesList.All(tiles => acceptedTypeList.Contains(tiles.Type)))
+                if (groupedMeldList.All(meld => acceptedTypeList.Contains(meld.Type)))
                 {
-                    var indicatingTile = groupedTilesList.Single(tiles => tiles.Type == TilesType.Pair).IndicatingTile;
+                    var indicatingTile = groupedMeldList.Single(meld => meld.Type == MeldType.Pair).IndicatingTile;
                     if (IsPairAllowed(indicatingTile, playerHands))
                     {
-                        var sequences = groupedTilesList.Where(tiles => tiles.Type == TilesType.ClosedSequence);
+                        var sequences = groupedMeldList.Where(meld => meld.Type == MeldType.ClosedSequence);
                         if (IsSequenceAllowed(sequences, playerHands))
                         {
                             resultHan = 1;
@@ -69,7 +69,7 @@ namespace JMahjong.ValueCalculation.Yaku
             return true;
         }
 
-        private bool IsSequenceAllowed(IEnumerable<TilesInfo> sequences, PlayerHandsInfo playerHands)
+        private bool IsSequenceAllowed(IEnumerable<MeldInfo> sequences, PlayerHandsInfo playerHands)
         {
             var latestTileType = playerHands.LatestTile.Tile.Type;
             var latestTileNumber = playerHands.LatestTile.Tile.Number;

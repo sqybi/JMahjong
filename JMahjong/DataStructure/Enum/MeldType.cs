@@ -3,7 +3,7 @@
     /// <summary>
     /// 牌组类型
     /// </summary>
-    public enum TilesType
+    public enum MeldType
     {
         /// <summary>
         /// 单张

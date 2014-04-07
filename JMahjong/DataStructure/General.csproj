@@ -43,10 +43,10 @@
     <Compile Include="DataStructure\PlayerHandsInfo.cs" />
     <Compile Include="Enum\PlayerPosition.cs" />
     <Compile Include="DataStructure\TileInfo.cs" />
-    <Compile Include="Enum\TilesType.cs" />
+    <Compile Include="Enum\MeldType.cs" />
     <Compile Include="Enum\TileType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataStructure\TilesInfo.cs" />
+    <Compile Include="DataStructure\MeldInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

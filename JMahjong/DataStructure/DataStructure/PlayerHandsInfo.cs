@@ -7,7 +7,7 @@ namespace JMahjong.General.DataStructure
     /// </summary>
     public class PlayerHandsInfo
     {
-        #region Tiles
+        #region Meld
 
         /// <summary>
         /// 浮动牌（未吃/碰/明杠/暗杠过的牌）
@@ -17,7 +17,7 @@ namespace JMahjong.General.DataStructure
         /// <summary>
         /// 固定牌组（吃/碰/明杠/暗杠过的牌组）
         /// </summary>
-        public List<TilesInfo> StickedTilesList { get; set; }
+        public List<MeldInfo> StickedMeldList { get; set; }
 
         /// <summary>
         /// 最后进张牌（同时存在于FreeTileList中）

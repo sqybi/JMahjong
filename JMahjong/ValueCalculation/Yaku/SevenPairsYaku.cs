@@ -17,16 +17,16 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<TilesInfo> groupedTilesList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
         {
             int resultHan = 2;
 
-            if (groupedTilesList.Any(tiles => tiles.Type != TilesType.Pair))
+            if (groupedMeldList.Any(meld => meld.Type != MeldType.Pair))
             {
                 resultHan = 0;
             }
 
-            if (groupedTilesList.Distinct().Count() != groupedTilesList.Count)
+            if (groupedMeldList.Distinct().Count() != groupedMeldList.Count)
             {
                 resultHan = 0;
             }

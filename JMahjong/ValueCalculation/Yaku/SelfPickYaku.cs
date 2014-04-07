@@ -17,12 +17,12 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<TilesInfo> groupedTilesList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
         {
             int resultHan = 0;
             
             if (playerHands.LatestTile.IsSelfPick
-                && YakuHelper.IsWinningCloseHands(groupedTilesList))
+                && YakuHelper.IsWinningCloseHands(groupedMeldList))
             {
                 resultHan = 1;
             }
