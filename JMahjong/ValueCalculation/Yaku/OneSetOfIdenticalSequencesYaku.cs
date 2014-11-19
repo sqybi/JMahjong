@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using JMahjong.General.DataStructure;
-
-namespace JMahjong.ValueCalculation.Yaku
+﻿namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using JMahjong.Shared.DataStructure;
+
     /// <summary>
     /// 一盃口（iipeikou）
     /// </summary>
@@ -15,20 +16,14 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, IList<MeldInfo> groupedMeldList)
         {
             int resultHan = 0;
 
-            if (YakuHelper.IsWinningCloseHands(groupedMeldList))
+            if (YakuHelper.IsWinningCloseHands(groupedMeldList)
+                && groupedMeldList.Any(meld => YakuHelper.CountMeldInMelds(meld.Type, meld.IndicatingTile, groupedMeldList) >= 2))
             {
-                foreach (var meld in groupedMeldList)
-                {
-                    if (YakuHelper.CountMeldInMelds(meld.Type, meld.IndicatingTile, groupedMeldList) >= 2)
-                    {
-                        resultHan = 1;
-                        break;
-                    }
-                }
+                resultHan = 1;
             }
 
             return resultHan;

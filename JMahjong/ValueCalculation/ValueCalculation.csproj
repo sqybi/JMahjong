@@ -62,9 +62,9 @@
     <Compile Include="Yaku\YakuHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataStructure\General.csproj">
+    <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{6afa4ed8-a495-4fd0-a0d4-82b8a8a98caf}</Project>
-      <Name>General</Name>
+      <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using JMahjong.General.DataStructure;
-
-namespace JMahjong.ValueCalculation.Yaku
+﻿namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using JMahjong.Shared.DataStructure;
+
     /// <summary>
     /// 海底捞月（haitei raoyue）
     /// </summary>
@@ -15,7 +15,7 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, IList<MeldInfo> groupedMeldList)
         {
             int resultHan = 0;
 

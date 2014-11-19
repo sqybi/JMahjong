@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using JMahjong.General.DataStructure;
-using JMahjong.General.Enum;
-
-namespace JMahjong.ValueCalculation.Yaku
+﻿namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using JMahjong.Shared.DataStructure;
+    using JMahjong.Shared.Enum;
+
     public static class YakuHelper
     {
         /// <summary>
@@ -15,7 +12,7 @@ namespace JMahjong.ValueCalculation.Yaku
         /// </summary>
         /// <param name="meldList">分割后的牌型</param>
         /// <returns>牌型是否可以和牌，不考虑无役的问题</returns>
-        public static bool IsWinningHands(List<MeldInfo> meldList)
+        public static bool IsWinningHands(IList<MeldInfo> meldList)
         {
             var acceptedTypeList = new List<MeldType>
             {
@@ -37,7 +34,7 @@ namespace JMahjong.ValueCalculation.Yaku
         /// </summary>
         /// <param name="meldList">分割后的牌型</param>
         /// <returns>牌型是否为门前清且可以和牌，不考虑无役的问题</returns>
-        public static bool IsWinningCloseHands(List<MeldInfo> meldList)
+        public static bool IsWinningCloseHands(IList<MeldInfo> meldList)
         {
             var acceptedTypeList = new List<MeldType>
             {
@@ -60,16 +57,7 @@ namespace JMahjong.ValueCalculation.Yaku
         /// <returns>牌组在手牌中出现的次数</returns>
         public static int CountMeldInMelds(MeldType meldType, TileInfo indicatingTile, IEnumerable<MeldInfo> melds)
         {
-            int count = 0;
-            foreach (var meld in melds)
-            {
-                if (meld.Type == meldType
-                    && meld.IndicatingTile == indicatingTile)
-                {
-                    count++;
-                }
-            }
-            return count;
+            return melds.Count(meld => meld.Type == meldType && meld.IndicatingTile == indicatingTile);
         }
     }
 }

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using JMahjong.General.DataStructure;
-using JMahjong.General.Enum;
-
-namespace JMahjong.ValueCalculation.Yaku
+﻿namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using JMahjong.Shared.DataStructure;
+    using JMahjong.Shared.Enum;
+
     /// <summary>
     /// 对对和（toitoihou）
     /// </summary>
@@ -16,18 +17,15 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, IList<MeldInfo> groupedMeldList)
         {
             int resultHan = 2;
 
-            foreach (var meld in groupedMeldList)
+            if (groupedMeldList.Any(
+                    meld => meld.Type != MeldType.ClosedTriplet
+                            && meld.Type != MeldType.OpenTriplet))
             {
-                if (meld.Type != MeldType.ClosedTriplet
-                    && meld.Type != MeldType.OpenTriplet)
-                {
-                    resultHan = 0;
-                    break;
-                }
+                resultHan = 0;
             }
 
             return resultHan;

@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
-using JMahjong.General.DataStructure;
+﻿using System.Linq;
 
 namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using JMahjong.Shared.DataStructure;
+
     /// <summary>
     /// 二盃口（ryanpeikou）
     /// </summary>
     public class TwoSetsOfIdenticalSequencesYaku : IYaku
     {
-        private bool allowSameSets;
+        private readonly bool _allowSameSets;
 
         /// <summary>
         /// 构造函数
@@ -16,20 +18,22 @@ namespace JMahjong.ValueCalculation.Yaku
         /// <param name="allowSameSets">是否允许由两个相同的一盃口组成</param>
         public TwoSetsOfIdenticalSequencesYaku(bool allowSameSets)
         {
-            this.allowSameSets = allowSameSets;
+            _allowSameSets = allowSameSets;
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, IList<MeldInfo> groupedMeldList)
         {
             int resultHan = 0;
 
             int setsCount = 0;
             if (YakuHelper.IsWinningCloseHands(groupedMeldList))
             {
-                foreach (var meld in groupedMeldList)
+                var selectedGroupedList =
+                    groupedMeldList.Select(
+                        meld => YakuHelper.CountMeldInMelds(meld.Type, meld.IndicatingTile, groupedMeldList));
+                foreach (int meldInMelds in selectedGroupedList)
                 {
-                    int meldInMelds = YakuHelper.CountMeldInMelds(meld.Type, meld.IndicatingTile, groupedMeldList);
-                    if (allowSameSets)
+                    if (_allowSameSets)
                     {
                         setsCount += meldInMelds / 2;
                     }

@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using JMahjong.General.DataStructure;
-using JMahjong.General.Enum;
-using System.Linq;
-
-namespace JMahjong.ValueCalculation.Yaku
+﻿namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using JMahjong.Shared.DataStructure;
+    using JMahjong.Shared.Enum;
+    using System.Linq;
+
     /// <summary>
     /// 平和（pinfu）
     /// </summary>
@@ -17,7 +17,7 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, IList<MeldInfo> groupedMeldList)
         {
             int resultHan = 0;
 
@@ -28,7 +28,6 @@ namespace JMahjong.ValueCalculation.Yaku
                     MeldType.ClosedSequence,
                     MeldType.Pair
                 };
-
                 if (groupedMeldList.All(meld => acceptedTypeList.Contains(meld.Type)))
                 {
                     var indicatingTile = groupedMeldList.Single(meld => meld.Type == MeldType.Pair).IndicatingTile;
@@ -42,7 +41,7 @@ namespace JMahjong.ValueCalculation.Yaku
                     }
                 }
             }
-
+            
             return resultHan;
         }
 

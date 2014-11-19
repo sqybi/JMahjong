@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using JMahjong.General.DataStructure;
-
-namespace JMahjong.ValueCalculation.Yaku
+﻿namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using JMahjong.Shared.DataStructure;
+
     /// <summary>
-    /// 立直（riichi）
+    /// 双立直（w riichi）
     /// </summary>
     public class DoubleReadyHandYaku : IYaku
     {
@@ -15,7 +15,7 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, IList<MeldInfo> groupedMeldList)
         {
             int resultHan = 0;
 

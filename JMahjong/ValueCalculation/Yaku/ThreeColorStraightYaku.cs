@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using JMahjong.General.DataStructure;
-using JMahjong.General.Enum;
-
-namespace JMahjong.ValueCalculation.Yaku
+﻿namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using JMahjong.Shared.DataStructure;
+    using JMahjong.Shared.Enum;
+
     /// <summary>
     /// 三色同顺（sanshoku doujun）
     /// </summary>
@@ -16,21 +17,15 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, IList<MeldInfo> groupedMeldList)
         {
             int resultHan = 0;
 
-            foreach (var meld in groupedMeldList)
+            var selectedMeldList = groupedMeldList.Where(meld => meld.Type == MeldType.ClosedSequence
+                                                                 || meld.Type == MeldType.OpenSequence);
+            if (selectedMeldList.Any(meld => IsThreeColor(meld, groupedMeldList)))
             {
-                if (meld.Type == MeldType.ClosedSequence
-                    || meld.Type == MeldType.OpenSequence)
-                {
-                    if (IsThreeColor(meld, groupedMeldList))
-                    {
-                        resultHan = 1;
-                        break;
-                    }
-                }
+                resultHan = 1;
             }
 
             if (YakuHelper.IsWinningCloseHands(groupedMeldList))
@@ -41,15 +36,14 @@ namespace JMahjong.ValueCalculation.Yaku
             return resultHan;
         }
 
-        private bool IsThreeColor(MeldInfo testMeld, IEnumerable<MeldInfo> groupedMeldList)
+        private static bool IsThreeColor(MeldInfo testMeld, IEnumerable<MeldInfo> groupedMeldList)
         {
             var tileTypeSet = new HashSet<TileType>();
-            foreach (var meld in groupedMeldList)
+            var selectedMeldList =
+                groupedMeldList.Where(meld => meld.IndicatingTile.Number == testMeld.IndicatingTile.Number);
+            foreach (var meld in selectedMeldList)
             {
-                if (meld.IndicatingTile.Number == testMeld.IndicatingTile.Number)
-                {
-                    tileTypeSet.Add(meld.IndicatingTile.Type);
-                }
+                tileTypeSet.Add(meld.IndicatingTile.Type);
             }
             return tileTypeSet.Contains(TileType.Pin)
                    && tileTypeSet.Contains(TileType.Sou)

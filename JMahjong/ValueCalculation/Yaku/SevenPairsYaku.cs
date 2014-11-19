@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using JMahjong.General.DataStructure;
-using JMahjong.General.Enum;
-
-namespace JMahjong.ValueCalculation.Yaku
+﻿namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using JMahjong.Shared.DataStructure;
+    using JMahjong.Shared.Enum;
+
     /// <summary>
     /// 七对子（chiitoitsu / chiitoi）
     /// </summary>
@@ -17,7 +17,7 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, IList<MeldInfo> groupedMeldList)
         {
             int resultHan = 2;
 

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using JMahjong.General.DataStructure;
-using JMahjong.General.Enum;
-
-namespace JMahjong.ValueCalculation.Yaku
+﻿namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using JMahjong.Shared.DataStructure;
+    using JMahjong.Shared.Enum;
+
     /// <summary>
     /// 一气通贯（ikkitsuukan）
     /// </summary>
@@ -16,25 +17,25 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, IList<MeldInfo> groupedMeldList)
         {
             int resultHan = 0;
 
-            var indicatingDictionary = new Dictionary<TileType, HashSet<int>>(); 
-            foreach (var meld in groupedMeldList)
+            var indicatingDictionary = new Dictionary<TileType, HashSet<int>>();
+            var sequenceMeldList =
+                groupedMeldList.Where(
+                    meld => meld.Type == MeldType.ClosedSequence || meld.Type == MeldType.OpenSequence);
+            foreach (var meld in sequenceMeldList)
             {
-                if (meld.Type == MeldType.ClosedSequence
-                    || meld.Type == MeldType.OpenSequence)
+                if (!indicatingDictionary.ContainsKey(meld.IndicatingTile.Type))
                 {
-                    if (!indicatingDictionary.ContainsKey(meld.IndicatingTile.Type))
-                    {
-                        indicatingDictionary[meld.IndicatingTile.Type] = new HashSet<int>();
-                    }
-                    indicatingDictionary[meld.IndicatingTile.Type].Add(meld.IndicatingTile.Number);
+                    indicatingDictionary[meld.IndicatingTile.Type] = new HashSet<int>();
                 }
+                indicatingDictionary[meld.IndicatingTile.Type].Add(meld.IndicatingTile.Number);
             }
 
-            foreach (var indicatingType in new List<TileType> {TileType.Pin, TileType.Sou, TileType.Wan})
+            var tileTypes = new List<TileType> { TileType.Pin, TileType.Sou, TileType.Wan };
+            foreach (var indicatingType in tileTypes)
             {
                 if (indicatingDictionary.ContainsKey(indicatingType))
                 {
@@ -44,6 +45,7 @@ namespace JMahjong.ValueCalculation.Yaku
                         && indicatingSet.Contains(7))
                     {
                         resultHan = 1;
+                        break;
                     }
                 }
             }
@@ -54,21 +56,6 @@ namespace JMahjong.ValueCalculation.Yaku
             }
 
             return resultHan;
-        }
-
-        private bool IsStraight(MeldInfo testMeld, IEnumerable<MeldInfo> groupedMeldList)
-        {
-            HashSet<TileType> tileTypeSet = new HashSet<TileType>();
-            foreach (var meld in groupedMeldList)
-            {
-                if (meld.IndicatingTile.Number == testMeld.IndicatingTile.Number)
-                {
-                    tileTypeSet.Add(meld.IndicatingTile.Type);
-                }
-            }
-            return tileTypeSet.Contains(TileType.Pin)
-                   && tileTypeSet.Contains(TileType.Sou)
-                   && tileTypeSet.Contains(TileType.Wan);
         }
     }
 }

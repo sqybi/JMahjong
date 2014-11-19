@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using JMahjong.General.DataStructure;
-using JMahjong.General.Enum;
-
-namespace JMahjong.ValueCalculation.Yaku
+﻿namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using JMahjong.Shared.DataStructure;
+
     /// <summary>
     /// 门前清自摸（menzenchin tsumohou / tsumo）
     /// </summary>
@@ -17,7 +15,7 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, IList<MeldInfo> groupedMeldList)
         {
             int resultHan = 0;
             

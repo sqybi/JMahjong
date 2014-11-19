@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
-using JMahjong.General.DataStructure;
-using JMahjong.General.Enum;
+﻿using System.Linq;
 
 namespace JMahjong.ValueCalculation.Yaku
 {
+    using System.Collections.Generic;
+    using JMahjong.Shared.DataStructure;
+    using JMahjong.Shared.Enum;
+
     /// <summary>
     /// 三杠子（san kantsu）
     /// </summary>
@@ -16,19 +18,11 @@ namespace JMahjong.ValueCalculation.Yaku
         {
         }
 
-        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, List<MeldInfo> groupedMeldList)
+        public int GetHanByPlayerHands(PlayerHandsInfo playerHands, IList<MeldInfo> groupedMeldList)
         {
             int resultHan = 0;
 
-            int quadsCount = 0;
-            foreach (var meld in groupedMeldList)
-            {
-                if (meld.Type == MeldType.ClosedQuad
-                    || meld.Type == MeldType.OpenQuad)
-                {
-                    quadsCount++;
-                }
-            }
+            int quadsCount = groupedMeldList.Count(meld => meld.Type == MeldType.ClosedQuad || meld.Type == MeldType.OpenQuad);
 
             if (quadsCount >= 3)
             {

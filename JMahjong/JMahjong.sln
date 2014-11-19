@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "General", "DataStructure\General.csproj", "{6AFA4ED8-A495-4FD0-A0D4-82B8A8A98CAF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueCalculation", "ValueCalculation\ValueCalculation.csproj", "{F61B4974-F304-45FD-A936-680C9DE0D22C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{6AFA4ED8-A495-4FD0-A0D4-82B8A8A98CAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6AFA4ED8-A495-4FD0-A0D4-82B8A8A98CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AFA4ED8-A495-4FD0-A0D4-82B8A8A98CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AFA4ED8-A495-4FD0-A0D4-82B8A8A98CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AFA4ED8-A495-4FD0-A0D4-82B8A8A98CAF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F61B4974-F304-45FD-A936-680C9DE0D22C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F61B4974-F304-45FD-A936-680C9DE0D22C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F61B4974-F304-45FD-A936-680C9DE0D22C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F61B4974-F304-45FD-A936-680C9DE0D22C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AFA4ED8-A495-4FD0-A0D4-82B8A8A98CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AFA4ED8-A495-4FD0-A0D4-82B8A8A98CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AFA4ED8-A495-4FD0-A0D4-82B8A8A98CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AFA4ED8-A495-4FD0-A0D4-82B8A8A98CAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
